@@ -1,0 +1,32 @@
+import { Repository } from 'typeorm';
+import { AdminEntity } from "./adminentity.entity";
+import { AdminForm } from "./adminform.dto";
+import { AdminFormUpdate } from "./adminformupdate.dto";
+import { OpenAccountEntity } from "./OpenAccount.Entity";
+import { OpenForm } from "./openform.dto";
+import { MailerService } from "@nestjs-modules/mailer";
+export declare class AdminService {
+    private adminRepo;
+    private AccountRepo;
+    private mailerService;
+    getAdminByTouristID(id: number): any;
+    constructor(adminRepo: Repository<AdminEntity>, AccountRepo: Repository<OpenAccountEntity>, mailerService: MailerService);
+    getAdmin(): any;
+    getAccount(): any;
+    AdminId(id: any): any;
+    AccountId(id: any): any;
+    getAdminByIDName(qry: any): any;
+    getAccountByIDName(qry: any): any;
+    OpenAccount(opendto: OpenForm): any;
+    insertUser(admindto: AdminForm): any;
+    updateTouristId(name: any, id: any): any;
+    updateUser(name: any, id: any): any;
+    updateTouristbyid(admindto: AdminFormUpdate, id: any): any;
+    updateAccountbyid(opendto: OpenForm, id: any): any;
+    deleteTouristbyid(id: any): any;
+    deleteAccountbyid(id: any): any;
+    signup(admindto: any): Promise<any>;
+    signin(admindto: any): Promise<1 | 0>;
+    sendEmail(to: string, subject: string, body: string): Promise<void>;
+    getAgentsByAdminID(id: any): any;
+}
